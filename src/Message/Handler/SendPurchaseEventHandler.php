@@ -76,6 +76,6 @@ class SendPurchaseEventHandler
 
     protected function isEligible(OrderInterface $order): bool
     {
-        return in_array($order->getPaymentState(), [OrderPaymentStates::STATE_AUTHORIZED, OrderPaymentStates::STATE_PAID], true) && $order->getCheckoutState() === OrderCheckoutStates::STATE_COMPLETED;
+        return in_array($order->getPaymentState(), [OrderPaymentStates::STATE_AUTHORIZED, OrderPaymentStates::STATE_PAID, OrderPaymentStates::STATE_AWAITING_PAYMENT], true) && $order->getCheckoutState() === OrderCheckoutStates::STATE_COMPLETED;
     }
 }
